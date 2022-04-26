@@ -21,6 +21,7 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
   end
 
   # GET /feeds/1/edit
@@ -30,7 +31,7 @@ class FeedsController < ApplicationController
   # POST /feeds or /feeds.json
   def create
     @feed = Feed.new(feed_params)
-    # @feed.user_id = current_user.id 
+    @feed.user_id = current_user.id
     respond_to do |format|
       if @feed.save
         format.html { redirect_to feed_url(@feed), notice: "Feed was successfully created." }
