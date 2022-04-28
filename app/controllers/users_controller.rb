@@ -37,6 +37,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    
+  end
+
 
 
   private

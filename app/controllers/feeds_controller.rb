@@ -8,6 +8,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1 or /feeds/1.json
   def show
+    @favorite = current_user.favorites.find_by(id: @feed.id)
   end
 
   # GET /feeds/new
@@ -34,6 +35,7 @@ class FeedsController < ApplicationController
     @feed.user_id = current_user.id
     respond_to do |format|
       if @feed.save
+        PostMailer.post_mail(@feed).deliver
         format.html { redirect_to feed_url(@feed), notice: "Feed was successfully created." }
         format.json { render :show, status: :created, location: @feed }
       else

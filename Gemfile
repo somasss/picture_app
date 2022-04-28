@@ -11,7 +11,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 gem 'carrierwave'
-
+gem 'dotenv-rails'
+gem 'faker'
+gem 'rexml'
 
 
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -25,6 +27,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener_web'
 end
 
 group :test do
