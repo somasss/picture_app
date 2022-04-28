@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    
+    @favorite_all = current_user.favorite_feeds
   end
 
 
