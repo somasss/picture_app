@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
   
-
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # POST /users or /users.json
   def create
     @user = User.new(user_params)
     if @user.save
@@ -47,7 +44,7 @@ class UsersController < ApplicationController
 
 
   private
-    # Only allow a list of trusted parameters through.
+
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                 :password_confirmation, :image, :image_cache)
